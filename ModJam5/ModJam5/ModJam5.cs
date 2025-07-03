@@ -1,14 +1,21 @@
 ﻿using System.Reflection;
 using HarmonyLib;
+using NewHorizons;
 using OWML.Common;
 using OWML.ModHelper;
+using System.Linq;
 
 namespace ModJam5
 {
     public class ModJam5 : ModBehaviour
     {
-        public static ModJam5 Instance;
+        public static string SystemName = "Jam5";
+
+        public static ModJam5 Instance { get; private set; }
         public INewHorizons NewHorizons;
+
+        public bool AllowSpawnOverride { get; private set; }
+
 
         public void Awake()
         {
@@ -16,6 +23,35 @@ namespace ModJam5
             // You won't be able to access OWML's mod helper in Awake.
             // So you probably don't want to do anything here.
             // Use Start() instead.
+        }
+
+        public override void Configure(IModConfig config)
+        {
+            base.Configure(config);
+
+            AllowSpawnOverride = config.GetSettingsValue<bool>("allowSpawnOverride");
+        }
+
+        public void FixCompatIssues()
+        {
+            var jamEntries = NewHorizons.GetInstalledAddons()
+                .Select(ModHelper.Interaction.TryGetMod)
+                .Where(addon => addon.GetDependencies().Select(x => x.ModHelper.Manifest.UniqueName).Contains(ModHelper.Manifest.UniqueName))
+                .Append(this)
+                .ToArray();
+
+            ModHelper.Console.WriteLine($"Found {jamEntries.Length} jam entries");
+
+            // Moves the planets
+            MiniSolarSystemOrganizer.Apply(Main.BodyDict[SystemName]);
+
+            // Make sure all ship log entries don't overlap
+            ShipLogPacking.Apply(jamEntries);
+
+            // Make sure that the root mod for the system remains us
+            Main.SystemDict[SystemName].Mod = this;
+
+            ModHelper.Console.WriteLine($"Finished packing jam entry ship logs");
         }
 
         public void Start()
