@@ -1,0 +1,5 @@
+﻿<Project>
+  <PropertyGroup>
+    <OutputPath>$(AppData)/OuterWildsModManager/OWML/Mods/xen-42.ModJam5</OutputPath>
+  </PropertyGroup>
+</Project>
