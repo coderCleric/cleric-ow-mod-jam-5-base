@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3488778897
+CRC: 2259737984
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8f62721b34438347fb4c3679afbc7970
+    Hash: 2030bb4d384929bfb038801775c0c489
   TypeTreeHash:
     serializedVersion: 2
     Hash: 32936b55364e6dfdaf8ba77507d48473
@@ -51,6 +51,7 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/Jam 5/DB/root-seed.prefab
 - Assets/Jam 5/root-jam5-start-platform.prefab
 - Assets/Jam 5/root-jam5-start.prefab
 Dependencies: []

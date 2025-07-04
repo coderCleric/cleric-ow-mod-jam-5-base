@@ -70,9 +70,8 @@ internal static class MiniSolarSystemOrganizer
         }
 
         var centers = bodies.Where(x => x.Config.Base.centerOfSolarSystem && x.Config.name != "Central Station");
-        var staticBodies = bodies.Where(x => (x.Config.Orbit.isStatic || x.Config.Orbit.staticPosition != null) && x.Config.Bramble?.dimension == null)
+        var staticBodies = bodies.Where(x => x.Config.Orbit.isStatic || x.Config.Orbit.staticPosition != null)
                 .Where(x => !x.Config.Base.centerOfSolarSystem).Where(x => !centers.Any(y => y.Config.name == x.Config.name));
-        var brambleDimensions = bodies.Where(x => x.Config.Bramble?.dimension != null);
 
         // Verify mods are all valid
         var angularPosition = new Dictionary<string, float>();
@@ -127,34 +126,6 @@ internal static class MiniSolarSystemOrganizer
             }
             var angle = angularPosition[staticBody.Mod.ModHelper.Manifest.UniqueName];
             staticBody.Config.Orbit.staticPosition += Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward * MINI_SYSTEM_DISTANCE;
-        }
-
-        HandleBrambleDimensions(brambleDimensions);
-    }
-
-    private static void HandleBrambleDimensions(IEnumerable<NewHorizonsBody> brambleDimensions)
-    {
-        ModJam5.LogDebug($"Handling {brambleDimensions.Count()} hidden dimensions");
-
-        var brambleDimensionRects = new List<Rect>();
-
-        foreach (var body in brambleDimensions)
-        {
-            // Take radius with padding
-            // Have to add a lot of padding to include the repel volume around the dimension (about 3.2x the radius)
-            var radius = body.Config.Bramble.dimension.radius * 4f;
-            brambleDimensionRects.Add(new Rect(-radius, -radius, radius * 2f, radius * 2f));
-        }
-
-        var packedRectPositions = RectPacking.Apply(brambleDimensionRects.ToArray());
-
-        for (int i = 0; i < brambleDimensions.Count(); i++)
-        {
-            var packedRect = packedRectPositions[i];
-            var body = brambleDimensions.ElementAt(i);
-
-            var center = packedRect.center;
-            body.Config.Orbit.staticPosition = new Vector3(center.x, -BRAMBLE_PLANE_DISTANCE, center.y);
         }
     }
 }

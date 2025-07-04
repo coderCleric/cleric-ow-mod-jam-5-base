@@ -12,6 +12,8 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Drawing;
 using NewHorizons.External.SerializableData;
+using NewHorizons.Builder.Props;
+using NewHorizons.External.Modules.Props;
 
 namespace ModJam5
 {
@@ -130,22 +132,22 @@ namespace ModJam5
                     sphereGO.transform.localScale = Vector3.one * MiniSolarSystemOrganizer.MINI_SYSTEM_RADIUS;
                     sphereGO.GetComponent<Collider>().enabled = false;
                     sphereGO.GetComponent<MeshRenderer>().material.color = UnityEngine.Color.white;
-                    var mesh = sphereGO.GetComponent<MeshFilter>().mesh;
+                    sphereGO.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                    sphereGO.GetComponent<MeshRenderer>().receiveShadows = false;
+                    //sphereGO.GetComponent<MeshRenderer>().material = new Material(Shader.Find("Sprites/Default"));
+                    var mesh = sphereGO.GetComponent<MeshFilter>().mesh;                    
                     var normals = mesh.normals;
                     for (var i = 0; i < normals.Length; i++) normals[i] = -normals[i];
                     mesh.normals = normals;
                     sphereGO.GetComponent<MeshFilter>().mesh = mesh;
-                    for (var subMesh = 0; subMesh < mesh.subMeshCount; subMesh++)
+                    var triangles = mesh.triangles;
+                    for (var i = 0; i < triangles.Length; i += 3)
                     {
-                        var triangles = mesh.GetTriangles(subMesh);
-                        for (var i = 0; i < triangles.Length; i += 3)
-                        {
-                            var temp = triangles[i];
-                            triangles[i] = triangles[i + 1];
-                            triangles[i + 1] = temp;
-                        }
-                        mesh.SetTriangles(triangles, subMesh);
+                        var temp = triangles[i];
+                        triangles[i] = triangles[i + 1];
+                        triangles[i + 1] = temp;
                     }
+                    mesh.triangles = triangles;
                     sphereGO.SetActive(ShowAllowedVolume);
                     allowedVolumeObjects.Add(sphereGO);
                 }
