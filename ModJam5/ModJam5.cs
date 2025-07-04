@@ -34,6 +34,7 @@ namespace ModJam5
 
         public void FixCompatIssues()
         {
+            return;
             var jamEntries = NewHorizons.GetInstalledAddons()
                 .Select(ModHelper.Interaction.TryGetMod)
                 .Where(addon => addon.GetDependencies().Select(x => x.ModHelper.Manifest.UniqueName).Contains(ModHelper.Manifest.UniqueName))

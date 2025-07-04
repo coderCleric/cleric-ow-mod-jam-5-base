@@ -1,0 +1,97 @@
+{
+  "$schema": "https://raw.githubusercontent.com/xen-42/outer-wilds-new-horizons/main/NewHorizons/Schemas/body_schema.json",
+  "name": "Central Station",
+  "starSystem": "Jam5",
+
+  "AmbientLights": [
+    {
+      "outerRadius": 600,
+      "tint": {
+        "r": 190,
+        "g": 230,
+        "b": 255,
+        "a": 255
+      },
+      "intensity": 0.2
+    }
+  ],
+
+  "Spawn": {
+    "playerSpawnPoints": [
+      {
+        "startWithSuit": true,
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "isDefault": true
+      }
+    ],
+    "shipSpawnPoints": [
+      {
+        "position": {
+          "x": 0,
+          "y": 12,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "alignRadial": false,
+        "isDefault": true
+      }
+    ]
+  },
+
+  "Base": {
+    "showMinimap": false,
+    "gravityFallOff": "linear",
+    "surfaceSize": 0,
+    "soiOverride": 0,
+    "surfaceGravity": 0,
+    "centerOfSolarSystem": true
+  },
+
+  "Props": {
+    "details": [
+      {
+        "assetBundle": "planets/assets/jam5bundle",
+        "path": "root-jam5-start.prefab",
+        "rename": "Central Station",
+        "position": {},
+        "rotation": {},
+        "keepLoaded": true
+      },
+      {
+        "assetBundle": "planets/assets/jam5bundle",
+        "path": "root-jam5-start-platform.prefab",
+        "rename": "PlatformTest",
+        "position": {},
+        "rotation": {},
+        "keepLoaded": true
+      }
+    ]
+  },
+
+  "ReferenceFrame": {
+    "maxTargetDistance": 10000.0,
+    "targetColliderRadius": 1000.0
+  },
+
+  "Volumes": {
+    "audioVolumes": [
+
+    ],
+    "zeroGravityVolumes": [
+
+    ]
+  }
+}
