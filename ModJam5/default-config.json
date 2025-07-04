@@ -7,6 +7,12 @@
       "title": "Allow Spawn Override",
       "tooltip": "Let jam entries change the spawn point. You have to restart or reload configs for changing this to take effect.",
       "value": false
+    },
+    "showAllowedVolume": {
+      "type": "toggle",
+      "title": "Show Allowed Volume",
+      "tooltip": "Toggle to show a sphere outlining the volume that jam entries are allowed.",
+      "value": false
     }
   }
 }

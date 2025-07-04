@@ -1,4 +1,5 @@
 ﻿using NewHorizons.External;
+using Newtonsoft.Json.Linq;
 using OWML.Common;
 using OWML.Utils;
 using System;
@@ -97,11 +98,15 @@ internal static class MiniSolarSystemOrganizer
             var angle = angularPosition[center.Mod.ModHelper.Manifest.UniqueName];
             center.Config.Orbit.staticPosition = Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward * MINI_SYSTEM_DISTANCE;
             center.Config.Orbit.primaryBody = "Central Station";
+            var dict = new Dictionary<string, object>();
+            if (center.Config.extras is JObject jObject)
+            {
+                dict = jObject.ToObject<Dictionary<string, object>>();
+            }
+            dict["isCenterOfMiniSystem"] = true;
+            center.Config.extras = JObject.FromObject(dict);
 
             centerBodyNames.Add(center.Config.name.Trim().ToLowerInvariant());
-
-            // TODO: Add large debug sphere shape that outlines how big the entry can be and hook it up to a debug option
-            // Probably save some info for that in the extras category
         }
 
         foreach (var staticBody in staticBodies)
