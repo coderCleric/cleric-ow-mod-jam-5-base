@@ -1,0 +1,29 @@
+﻿﻿<AstroObjectEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/shiplog_schema.xsd">
+  <ID>STARSHIPCOMMUNITY</ID>
+
+  <Entry>
+    <ID>STARSHIP_COMMUNITY_ENTRY</ID>
+    <Name>Starship Community</Name>
+    <Curiosity>JAM5_EXAMPLE_CURIOSITY</Curiosity>
+
+    <RumorFact>
+      <ID>STARSHIP_COMMUNITY_RUMOR_FACT</ID>
+      <RumorName>Starship Community</RumorName>
+      <SourceID>JAM_5_EXAMPLE_SUN_ROOT</SourceID>
+      <Text>There is a Nomai vessel high above a white dwarf star.</Text>
+    </RumorFact>
+
+    <ExploreFact>
+      <ID>STARSHIP_COMMUNITY_PING_FACT</ID>
+      <Text>A Nomai named Ping travelled here using this vessel.</Text>
+    </ExploreFact>
+
+    <ExploreFact>
+      <ID>STARSHIP_COMMUNITY_COMPLETION_FACT</ID>
+      <Text>Ping travelled here seeking an ancient signal. I helped them to encode it to a Nomai scroll, but it was impossible to read.</Text>
+    </ExploreFact>
+
+  </Entry>
+
+</AstroObjectEntry>

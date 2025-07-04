@@ -34,7 +34,6 @@ namespace ModJam5
 
         public void FixCompatIssues()
         {
-            return;
             var jamEntries = NewHorizons.GetInstalledAddons()
                 .Select(ModHelper.Interaction.TryGetMod)
                 .Where(addon => addon.GetDependencies().Select(x => x.ModHelper.Manifest.UniqueName).Contains(ModHelper.Manifest.UniqueName))
@@ -44,7 +43,7 @@ namespace ModJam5
             ModHelper.Console.WriteLine($"Found {jamEntries.Length} jam entries");
 
             // Moves the planets
-            MiniSolarSystemOrganizer.Apply(Main.BodyDict[SystemName]);
+            MiniSolarSystemOrganizer.Apply(Main.BodyDict[SystemName], jamEntries);
 
             // Make sure all ship log entries don't overlap
             ShipLogPacking.Apply(jamEntries);
@@ -69,12 +68,30 @@ namespace ModJam5
             // Example of accessing game code.
             OnCompleteSceneLoad(OWScene.TitleScreen, OWScene.TitleScreen); // We start on title screen
             LoadManager.OnCompleteSceneLoad += OnCompleteSceneLoad;
+
+            ModHelper.Events.Unity.FireOnNextUpdate(FixCompatIssues);
         }
 
         public void OnCompleteSceneLoad(OWScene previousScene, OWScene newScene)
         {
             if (newScene != OWScene.SolarSystem) return;
             ModHelper.Console.WriteLine("Loaded into solar system!", MessageType.Success);
+        }
+
+        public static void Log(string message)
+        {
+            Instance.ModHelper.Console.WriteLine(message, MessageType.Info);
+        }
+
+        public static void LogError(string message)
+        {
+            Instance.ModHelper.Console.WriteLine(message, MessageType.Error);
+        }
+
+        public static void LogDebug(string message)
+        {
+            // TODO: if debug
+            Instance.ModHelper.Console.WriteLine("DEBUG: " + message, MessageType.Info);
         }
     }
 

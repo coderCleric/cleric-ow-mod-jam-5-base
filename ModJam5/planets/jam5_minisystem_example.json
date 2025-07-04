@@ -1,0 +1,37 @@
+﻿{
+  "name": "Supernova Remnant",
+  "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/body_schema.json",
+  "starSystem": "Jam5",
+  "Base": {
+    "gravityFallOff": "inverseSquared",
+    "surfaceSize": 400,
+    "surfaceGravity": 10,
+    "centerOfSolarSystem": true
+  },
+  "Orbit": {
+    "staticPosition": {
+      "x": 1000,
+      "y": 2000,
+      "z": 5000
+    }
+  },
+  "Star": {
+    "stellarDeathType": "none",
+    "size": 300,
+    "solarLuminosity": 1,
+    "lightTint": {
+      "r": 255,
+      "g": 250,
+      "b": 240
+    },
+    "tint": {
+      "r": 140,
+      "g": 150,
+      "b": 180
+    }
+  },
+  "ShipLog": {
+    "xmlFile": "planets/shiplog/Jam5ExampleSun.xml",
+    "spriteFolder": "planets/shiplog/sprites"
+  }
+}

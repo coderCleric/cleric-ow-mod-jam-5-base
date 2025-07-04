@@ -1,15 +1,23 @@
 ﻿using NewHorizons.External;
+using OWML.Common;
+using OWML.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.Analytics;
 
 namespace ModJam5;
 
 internal static class MiniSolarSystemOrganizer
 {
-    public static void Apply(IEnumerable<NewHorizonsBody> bodies)
+    public const float BRAMBLE_PLANE_DISTANCE = 20000f;
+    public const float MINI_SYSTEM_RADIUS = 2500f;
+    public const float MINI_SYSTEM_DISTANCE = 10000f;
+
+    public static void Apply(IEnumerable<NewHorizonsBody> bodies, IModBehaviour[] jamEntries)
     {
         // Only allow one spawn point for now ig and let them override the sun one immediately
         // Only include spawns that set both because idk why don't you want a ship bro?
@@ -60,14 +68,88 @@ internal static class MiniSolarSystemOrganizer
             }
         }
 
-        var staticBodies = bodies.Where(x => (x.Config.Orbit.isStatic || x.Config.Orbit.staticPosition != null) && x.Config.Bramble?.dimension == null && !x.Config.Base.centerOfSolarSystem);
+        var centers = bodies.Where(x => x.Config.Base.centerOfSolarSystem && x.Config.name != "Central Station");
+        var staticBodies = bodies.Where(x => (x.Config.Orbit.isStatic || x.Config.Orbit.staticPosition != null) && x.Config.Bramble?.dimension == null)
+                .Where(x => !x.Config.Base.centerOfSolarSystem).Where(x => !centers.Any(y => y.Config.name == x.Config.name));
         var brambleDimensions = bodies.Where(x => x.Config.Bramble?.dimension != null);
-        var regularPlanets = bodies.Where(x => (!x.Config.Orbit.isStatic && x.Config.Orbit.staticPosition == null) && x.Config.Bramble?.dimension == null);
 
-        // TODO: Organize planets around the center 
+        // Verify mods are all valid
+        var angularPosition = new Dictionary<string, float>();
+        for (int i = 0; i < jamEntries.Length; i++)
+        {
+            var mod = jamEntries[i];
+            angularPosition[mod.ModHelper.Manifest.UniqueName] = 2f * Mathf.PI * (float)i / (float)jamEntries.Length;
+            if (!centers.Any(x => x.Mod.ModHelper.Manifest.UniqueName == mod.ModHelper.Manifest.UniqueName))
+            {
+                ModJam5.LogError($"INVALID JAM ENTRY {mod.ModHelper.Manifest.UniqueName} HAS NO CENTER");
+            }
+        }
 
-        //HandleStaticBodies(staticBodies);
-        //HandleBrambleDimensions(brambleDimensions);
-        //HandleRegularPlanets(regularPlanets);
+        var centerBodyNames = new List<string>();
+
+        foreach (var center in centers)
+        {
+            ModJam5.LogDebug($"Fixing mod center {center.Config.name}");
+
+            center.Config.Orbit ??= new();
+            center.Config.Base.centerOfSolarSystem = false;
+            center.Config.Orbit.isStatic = true;
+            var angle = angularPosition[center.Mod.ModHelper.Manifest.UniqueName];
+            center.Config.Orbit.staticPosition = Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward * MINI_SYSTEM_DISTANCE;
+            center.Config.Orbit.primaryBody = "Central Station";
+
+            centerBodyNames.Add(center.Config.name.Trim().ToLowerInvariant());
+
+            // TODO: Add large debug sphere shape that outlines how big the entry can be and hook it up to a debug option
+            // Probably save some info for that in the extras category
+        }
+
+        foreach (var staticBody in staticBodies)
+        {
+            ModJam5.LogDebug($"Fixing static body position {staticBody.Config.name}");
+
+            if (centerBodyNames.Contains(staticBody.Config.name.Trim().ToLowerInvariant()))
+            {
+                // No idea why this happens
+                continue;
+            }
+
+            staticBody.Config.Orbit ??= new();
+            staticBody.Config.Orbit.staticPosition ??= Vector3.zero;
+            if (((Vector3)staticBody.Config.Orbit.staticPosition).magnitude > MINI_SYSTEM_RADIUS)
+            {
+                ModJam5.LogError($"INVALID JAM ENTRY {staticBody.Config.name} IS OUTSIDE MAXIMUM RADIUS {MINI_SYSTEM_RADIUS}");
+            }
+            var angle = angularPosition[staticBody.Mod.ModHelper.Manifest.UniqueName];
+            staticBody.Config.Orbit.staticPosition += Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward * MINI_SYSTEM_DISTANCE;
+        }
+
+        HandleBrambleDimensions(brambleDimensions);
+    }
+
+    private static void HandleBrambleDimensions(IEnumerable<NewHorizonsBody> brambleDimensions)
+    {
+        ModJam5.LogDebug($"Handling {brambleDimensions.Count()} hidden dimensions");
+
+        var brambleDimensionRects = new List<Rect>();
+
+        foreach (var body in brambleDimensions)
+        {
+            // Take radius with padding
+            // Have to add a lot of padding to include the repel volume around the dimension (about 3.2x the radius)
+            var radius = body.Config.Bramble.dimension.radius * 4f;
+            brambleDimensionRects.Add(new Rect(-radius, -radius, radius * 2f, radius * 2f));
+        }
+
+        var packedRectPositions = RectPacking.Apply(brambleDimensionRects.ToArray());
+
+        for (int i = 0; i < brambleDimensions.Count(); i++)
+        {
+            var packedRect = packedRectPositions[i];
+            var body = brambleDimensions.ElementAt(i);
+
+            var center = packedRect.center;
+            body.Config.Orbit.staticPosition = new Vector3(center.x, -BRAMBLE_PLANE_DISTANCE, center.y);
+        }
     }
 }
