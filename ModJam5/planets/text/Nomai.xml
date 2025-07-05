@@ -21,15 +21,15 @@
     </DialogueOptionsList>
 
     <SetCondition>SpokeToStarshipCommunityNomaiThisLoop</SetCondition>
-    <SetPersistentCondition>SpokeToStarshipCommunityNomaiEver</SetPersistentCondition>
+    <SetPersistentCondition>Jam5SpokeToStarshipCommunityNomaiEver</SetPersistentCondition>
   </DialogueNode>
 
   <!-- Entry condition has to be set manually from a persistent condition -->
   <DialogueNode>
     <Name>START</Name>
-    <EntryCondition>SpokeToStarshipCommunityNomaiEver</EntryCondition>
+    <EntryCondition>Jam5SpokeToStarshipCommunityNomaiEver</EntryCondition>
     <Dialogue>
-      <Page>Greetings visitor!</Page>
+      <Page>Greetings traveler!</Page>
     </Dialogue>
     <SetCondition>SpokeToStarshipCommunityNomaiThisLoop</SetCondition>
     <DialogueTarget>Menu</DialogueTarget>
@@ -39,7 +39,7 @@
     <Name>START_2</Name>
     <EntryCondition>SpokeToStarshipCommunityNomaiThisLoop</EntryCondition>
     <Dialogue>
-      <Page>Hello again visitor!</Page>
+      <Page>Hello again traveler!</Page>
     </Dialogue>
     <DialogueTarget>Menu</DialogueTarget>
   </DialogueNode>
