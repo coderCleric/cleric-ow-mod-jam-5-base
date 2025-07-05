@@ -3,7 +3,25 @@
   "titleScreens": [
     {
       "disableNHPlanets": true,
-      "shareTitleScreen": false
+      "shareTitleScreen": false,
+      "music": "OW_TravelerTheme_piano",
+      "menuTextTint": {
+        "r": 180,
+        "g": 60,
+        "b": 220
+      },
+      "MenuPlanet": {
+        "destroyMenuPlanet": true,
+        "details": [
+          {
+            "assetBundle": "planets/assets/jam5bundle",
+            "path": "Assets/Jam 5/root-jam5-start.prefab",
+            "rename": "CentralStation",
+            "position": { "y": 4 },
+            "scale": 0.2
+          }
+        ]
+      }
     }
   ]
 }

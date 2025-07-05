@@ -60,7 +60,7 @@
     "showMinimap": false,
     "gravityFallOff": "linear",
     "surfaceSize": 0,
-    "soiOverride": 0,
+    "soiOverride": 400,
     "surfaceGravity": 0,
     "centerOfSolarSystem": true
   },
@@ -89,15 +89,6 @@
   "ReferenceFrame": {
     "maxTargetDistance": 10000.0,
     "targetColliderRadius": 1000.0
-  },
-
-  "Volumes": {
-    "audioVolumes": [
-
-    ],
-    "zeroGravityVolumes": [
-
-    ]
   },
 
   "ShipLog": {
