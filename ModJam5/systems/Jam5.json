@@ -39,15 +39,15 @@
     {
       "id": "JAM_5_EXAMPLE_SUN_ROOT",
       "position": {
-        "x": 250,
-        "y": 0
+        "x": 240,
+        "y": -120
       }
     },
     {
       "id": "STARSHIP_COMMUNITY_ENTRY",
       "position": {
-        "x": 250,
-        "y": 160
+        "x": 240,
+        "y": 120
       }
     }
   ]
