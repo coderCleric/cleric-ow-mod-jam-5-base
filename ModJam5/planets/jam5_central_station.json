@@ -71,7 +71,7 @@
         "path": "root-jam5-start.prefab",
         "rename": "Central Station",
         "position": {},
-        "rotation": {"y": -60},
+        "rotation": { "y": -60 },
         "keepLoaded": true
       }
     ]
@@ -89,5 +89,16 @@
     },
     "xmlFile": "planets/shiplog/CentralStation.xml",
     "spriteFolder": "planets/shiplog/sprites"
+  },
+
+  "Volumes": {
+    "audioVolumes": [
+      {
+        "audio": "amb_observatory",
+        "radius": 100,
+        "track": "environment",
+        "volume": 0.6
+      }
+    ]
   }
 }
