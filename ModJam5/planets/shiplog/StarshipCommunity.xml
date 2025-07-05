@@ -3,19 +3,19 @@
   <ID>STARSHIPCOMMUNITY</ID>
 
   <Entry>
-    <ID>STARSHIP_COMMUNITY_ENTRY</ID>
+    <ID>JAM_5_BASE_STARSHIP_COMMUNITY_ENTRY</ID>
     <Name>Ping's Vessel</Name>
     <Curiosity>JAM5_CURIOSITY</Curiosity>
 
     <RumorFact>
       <ID>JAM_5_BASE_STARSHIP_COMMUNITY_RUMOR_FACT</ID>
       <RumorName>Starship Community</RumorName>
-      <SourceID>JAM_5_EXAMPLE_SUN_ROOT</SourceID>
+      <SourceID>JAM_5_BASE_EXAMPLE_SUN_ROOT</SourceID>
       <Text>There is a Nomai vessel high above a white dwarf star.</Text>
     </RumorFact>
 
     <ExploreFact>
-      <ID>STARSHIP_COMMUNITY_PING_FACT</ID>
+      <ID>JAM_5_BASE_STARSHIP_COMMUNITY_PING_FACT</ID>
       <Text>A Nomai named Ping travelled here using this vessel.</Text>
     </ExploreFact>
 

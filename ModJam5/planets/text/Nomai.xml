@@ -91,7 +91,7 @@
       <Page>I will allow you to get a headstart on exploring this station. I should be able to join you in this endeavor in approximately <![CDATA[<color="orange">]]>22 minutes<![CDATA[</color>]]>.</Page>
     </Dialogue>
     <RevealFacts>
-      <FactID>STARSHIP_COMMUNITY_PING_FACT</FactID>
+      <FactID>JAM_5_BASE_STARSHIP_COMMUNITY_PING_FACT</FactID>
     </RevealFacts>
     <SetPersistentCondition>HasSpokenToPing</SetPersistentCondition>
     <DialogueTarget>Menu</DialogueTarget>

@@ -30,21 +30,21 @@
   ],
   "entryPositions": [
     {
-      "id": "JAM5_ROOT",
+      "id": "JAM_5_BASE_CENTRAL_STATION_ROOT",
       "position": {
         "x": 0,
         "y": 0
       }
     },
     {
-      "id": "JAM_5_EXAMPLE_SUN_ROOT",
+      "id": "JAM_5_BASE_EXAMPLE_SUN_ROOT",
       "position": {
         "x": 240,
         "y": -120
       }
     },
     {
-      "id": "STARSHIP_COMMUNITY_ENTRY",
+      "id": "JAM_5_BASE_STARSHIP_COMMUNITY_ENTRY",
       "position": {
         "x": 240,
         "y": 120
