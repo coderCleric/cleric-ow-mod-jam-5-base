@@ -2,7 +2,11 @@
   "$schema": "https://raw.githubusercontent.com/xen-42/outer-wilds-new-horizons/main/NewHorizons/Schemas/body_schema.json",
   "name": "Central Station",
   "starSystem": "Jam5",
-  "removeChildren": ["Sector/PlatformTest"],
+  "removeChildren": [ "Sector/PlatformTest" ],
+
+  "MapMarker": {
+    "enabled": true
+  },
 
   "AmbientLights": [
     {
@@ -94,5 +98,14 @@
     "zeroGravityVolumes": [
 
     ]
+  },
+
+  "ShipLog": {
+    "mapMode": {
+      "revealedSprite": "planets/shiplog/central_station.png",
+      "scale": 2
+    },
+    "xmlFile": "planets/shiplog/CentralStation.xml",
+    "spriteFolder": "planets/shiplog/sprites"
   }
 }

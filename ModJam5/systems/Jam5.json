@@ -7,34 +7,21 @@
   "enableTimeLoop": true,
   "name": "Jam5",
   "initialReveal": [
-
+    "JAM_5_BASE_EXPLORE_FACT",
+    "JAM_5_BASE_STARSHIP_COMMUNITY_RUMOR_FACT",
+    "JAM_5_BASE_CENTRAL_STATION_EXPLORE_FACT"
   ],
   "curiosities": [
     {
       "id": "JAM5_CURIOSITY",
       "color": {
-        "r": 120,
+        "r": 240,
         "g": 150,
         "b": 250,
         "a": 255
       },
       "highlightColor": {
-        "r": 150,
-        "g": 180,
-        "b": 250,
-        "a": 255
-      }
-    },
-    {
-      "id": "JAM5_EXAMPLE_CURIOSITY",
-      "color": {
-        "r": 120,
-        "g": 150,
-        "b": 250,
-        "a": 255
-      },
-      "highlightColor": {
-        "r": 150,
+        "r": 240,
         "g": 180,
         "b": 250,
         "a": 255

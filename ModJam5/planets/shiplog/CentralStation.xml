@@ -1,16 +1,17 @@
 <AstroObjectEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/shiplog_schema.xsd">
-  <ID>JAM_5_EXAMPLE_SUN</ID>
+  <ID>JAM_5_BASE_CENTRAL_STATION</ID>
 
   <Entry>
-    <ID>JAM_5_EXAMPLE_SUN_ROOT</ID>
-    <Name>Supernova Remnant</Name>
+    <ID>JAM_5_BASE_CENTRAL_STATION_ROOT</ID>
+    <Name>Central Station</Name>
     <Curiosity>JAM5_CURIOSITY</Curiosity>
+    <IsCuriosity/>
     <IgnoreMoreToExplore/>
 
     <ExploreFact>
-      <ID>JAM_5_BASE_EXPLORE_FACT</ID>
-      <Text>A nearby white dwarf.</Text>
+      <ID>JAM_5_BASE_CENTRAL_STATION_EXPLORE_FACT</ID>
+      <Text>A derelict Nomai vessel surrounded by small star systems. This is the central hub for the fifth Outer Wilds community mod jam!</Text>
     </ExploreFact>
 
   </Entry>

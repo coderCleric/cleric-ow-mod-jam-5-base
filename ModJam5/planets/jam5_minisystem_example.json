@@ -2,7 +2,10 @@
   "name": "Supernova Remnant",
   "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/body_schema.json",
   "starSystem": "Jam5",
-  "removeChildren": ["Sector/Star/Audio_Star/SurfaceAudio_Sun"],
+  "removeChildren": [ "Sector/Star/Audio_Star/SurfaceAudio_Sun" ],
+  "MapMarker": {
+    "enabled": true
+  },
   "Base": {
     "gravityFallOff": "inverseSquared",
     "surfaceSize": 400,
@@ -21,9 +24,10 @@
         "g": 80,
         "b": 60
       },
-      "material": "rock",
-      "scale": 100
-    }
+      "material": "rock"
+    },
+    "minSize": 50,
+    "maxSize": 150
   },
   "Orbit": {
     "staticPosition": {
@@ -44,7 +48,7 @@
     "tint": {
       "r": 140,
       "g": 150,
-      "b": 180
+      "b": 160
     }
   },
   "ShipLog": {
