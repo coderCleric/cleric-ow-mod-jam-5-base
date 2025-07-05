@@ -14,6 +14,7 @@ using System.Drawing;
 using NewHorizons.External.SerializableData;
 using NewHorizons.Builder.Props;
 using NewHorizons.External.Modules.Props;
+using NewHorizons.Builder.Atmosphere;
 
 namespace ModJam5
 {
@@ -120,6 +121,16 @@ namespace ModJam5
                 // So stupid but tidal locking is dumb and honestly nh should just let u set rotation directly but i cant be bothered
                 // Some sort of euler angle-y degeneracy breaking here
                 NewHorizons.GetPlanet("Starship Community").transform.rotation = Quaternion.Euler(307.7599f, 131.2078f, 19.5048f);
+
+                // This is silly and jank and NH should support this better
+                // Stops the potentially like 10 different stars all casting weird shadows all over the station
+                SunOverrideBuilder.Make(NewHorizons.GetPlanet("Central Station"), null, new NewHorizons.External.Modules.AtmosphereModule()
+                {
+                    clouds = new()
+                    {
+                        innerCloudRadius = 2000,
+                    }
+                }, null, 0);
             }, 10);
         }
 
