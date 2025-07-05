@@ -18,11 +18,6 @@
           "y": 152.1115,
           "z": -2.342947E-06
         },
-        "normal": {
-          "x": 6.689438E-14,
-          "y": 1,
-          "z": -8.742278E-08
-        },
         "rename": "Nomai",
         "path": "QuantumMoon_Body/Sector_QuantumMoon/State_EYE/Interactables_EYEState/ConversationPivot/Character_NOM_Solanum/Nomai_ANIM_SkyWatching_Idle"
       },

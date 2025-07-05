@@ -145,33 +145,36 @@ namespace ModJam5
                     var triangles = mesh.triangles;
                     for (var i = 0; i < triangles.Length; i += 3)
                     {
-                        var temp = triangles[i];
-                        triangles[i] = triangles[i + 1];
-                        triangles[i + 1] = temp;
+                        (triangles[i + 1], triangles[i]) = (triangles[i], triangles[i + 1]);
                     }
                     mesh.triangles = triangles;
                     sphereGO.SetActive(ShowAllowedVolume);
                     allowedVolumeObjects.Add(sphereGO);
                 }
-                if (dict["isPlatform"] is bool isPlatform && isPlatform)
+                if (dict.TryGetValue("isPlatform", out var isPlatform) && isPlatform is bool isPlatformBool && isPlatformBool)
                 {
                     var platformAngle = 0f;
-                    if (dict.TryGetValue("angle", out var angle) && angle is float angleFloat)
+                    if (dict.TryGetValue("angle", out var angle))
                     {
-                        platformAngle = angleFloat * 360 / (2f * Mathf.PI);
+                        platformAngle = float.Parse(angle.ToString());
                     }
 
-                    DetailBuilder.Make(planet, null, this, new DetailInfo()
+                    var platform = DetailBuilder.Make(planet, null, this, new DetailInfo()
                     {
                         assetBundle = "planets/assets/jam5bundle",
-                        path = "Assets/Jam 5/root-jam5-start-platform.prefab",
-                        rotation = new Vector3(0, platformAngle, 0)
+                        path = "Assets/Jam 5/root-jam5-start-platform.prefab"
                     });
+
+                    // Not sure why it doesn't work this frame
+                    ModHelper.Events.Unity.FireInNUpdates(() =>
+                    {
+                        planet.transform.rotation = Quaternion.Euler(0, platformAngle, 0);
+                    }, 10);
                 }
             }
-            catch
+            catch (Exception e)
             {
-
+                LogError($"Failed when running custom builder for [{planet?.name}]: " + e.ToString());
             }
         }
 

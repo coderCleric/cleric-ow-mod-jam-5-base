@@ -79,7 +79,8 @@ internal static class MiniSolarSystemOrganizer
         for (int i = 0; i < jamEntries.Length; i++)
         {
             var mod = jamEntries[i];
-            angularPosition[mod.ModHelper.Manifest.UniqueName] = 2f * Mathf.PI * (float)i / (float)jamEntries.Length;
+            var angle = 360f * (float)i / (float)(jamEntries.Length);
+            angularPosition[mod.ModHelper.Manifest.UniqueName] = angle;
             if (!centers.Any(x => x.Mod.ModHelper.Manifest.UniqueName == mod.ModHelper.Manifest.UniqueName))
             {
                 ModJam5.LogError($"INVALID JAM ENTRY {mod.ModHelper.Manifest.UniqueName} HAS NO CENTER");
