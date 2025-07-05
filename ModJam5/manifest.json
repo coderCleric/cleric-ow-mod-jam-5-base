@@ -1,10 +1,10 @@
 {
   "$schema": "https://raw.githubusercontent.com/ow-mods/owml/master/schemas/manifest_schema.json",
   "filename": "ModJam5.dll",
-  "author": "xen-42 and Streetlights Behind The Trees",
+  "author": "xen and SBtT",
   "name": "Mod Jam 5",
   "uniqueName": "xen-42.ModJam5",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "owmlVersion": "2.13.0",
   "dependencies": [ "xen.NewHorizons" ]
 }
