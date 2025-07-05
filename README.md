@@ -26,3 +26,8 @@ To define your mini solar system, you must make a central planet with `"centerOf
 You are strongly encouraged to have at least one ship log entry which is granted to the player when they complete the mod. Also avoid using credits that quit to the main menu after beating your mod: Players and judges will likely be playing multiple mods at once and having to load back into the system after beating your mod will be a waste of time.
 
 Your mod **must** be contained within a 2500m radius sphere centered around your `centerOfSolarSystem` object. To check that you are abiding by this restriction, there is a debug option "Show Allowed Volume" which will render a sphere around your entry showing you the allowed area.
+
+**TL;DR**:
+1. Mod starts at a platform in the central station (see config above)
+2. Mod takes place within 2500m radius sphere with central body marked `"centerOfSolarSystem": true`
+3. Includes dimensions and dreamworlds.
