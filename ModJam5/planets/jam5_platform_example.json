@@ -9,22 +9,79 @@
     "details": [
       {
         "position": {
-          "x": -5.241439,
-          "y": 1.186132E-05,
-          "z": 65.18028
+          "x": -3.307931,
+          "y": 1.084805E-05,
+          "z": 53.37394
         },
         "rotation": {
-          "x": 3.570615E-06,
-          "y": 146.2968,
-          "z": -2.779431E-06
+          "x": 3.65993E-06,
+          "y": 152.1115,
+          "z": -2.342947E-06
         },
         "normal": {
-          "x": -3.743796E-13,
+          "x": 6.689438E-14,
           "y": 1,
-          "z": -8.742246E-08
+          "z": -8.742278E-08
         },
         "rename": "Nomai",
         "path": "QuantumMoon_Body/Sector_QuantumMoon/State_EYE/Interactables_EYEState/ConversationPivot/Character_NOM_Solanum/Nomai_ANIM_SkyWatching_Idle"
+      },
+      {
+        "rename": "Treepot_1",
+        "path": "DB_VesselDimension_Body/Sector_VesselDimension/Props_VesselDimension/Prefab_NOM_NomaiTree_VarDRY_3/GEO_Treepot_3",
+        "position": {
+          "x": -8.6,
+          "y": 0,
+          "z": 66
+        },
+        "rotation": {
+          "x": 0,
+          "y": 120,
+          "z": 0
+        }
+      },
+      {
+        "path": "WhiteholeStation_Body/Sector_WhiteholeStation/Props_WhiteHoleStation/Prefab_NOM_NomaiTree_Var_2/GEO_NomaiTree_1_Trunk",
+        "parentPath": "Sector/Treepot_1",
+        "isRelativeToParent": true
+      },
+      {
+        "rename": "Treepot_2",
+        "path": "DB_VesselDimension_Body/Sector_VesselDimension/Props_VesselDimension/Prefab_NOM_NomaiTree_VarDRY_3/GEO_Treepot_3",
+        "position": {
+          "x": 8.6,
+          "y": 0,
+          "z": 66
+        },
+        "rotation": {
+          "x": 0,
+          "y": 240,
+          "z": 0
+        }
+      },
+      {
+        "path": "WhiteholeStation_Body/Sector_WhiteholeStation/Props_WhiteHoleStation/Prefab_NOM_NomaiTree_Var_2/GEO_NomaiTree_2_Trunk",
+        "parentPath": "Sector/Treepot_2",
+        "isRelativeToParent": true
+      },
+      {
+        "rename": "Treepot_3",
+        "path": "DB_VesselDimension_Body/Sector_VesselDimension/Props_VesselDimension/Prefab_NOM_NomaiTree_VarDRY_3/GEO_Treepot_3",
+        "position": {
+          "x": 8.6,
+          "y": 0,
+          "z": 54
+        },
+        "rotation": {
+          "x": 0,
+          "y": 120,
+          "z": 0
+        }
+      },
+      {
+        "path": "WhiteholeStation_Body/Sector_WhiteholeStation/Props_WhiteHoleStation/Prefab_NOM_NomaiTree_Var_2/GEO_NomaiTree_3_Trunk",
+        "parentPath": "Sector/Treepot_3",
+        "isRelativeToParent": true
       }
     ],
     "warpTransmitters": [

@@ -1,0 +1,133 @@
+<DialogueTree xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/dialogue_schema.xsd">
+  <NameField>Ping</NameField>
+
+  <!-- First time talking to them, mimic the Prisoner/Solanum interaction -->
+  <DialogueNode>
+    <Name>FirstTimeTalking</Name>
+    <EntryCondition>DEFAULT</EntryCondition>
+    <Dialogue>
+      <Page>...</Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>Who are you?</Text>
+        <DialogueTarget>Who</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>Where are we?</Text>
+        <DialogueTarget>Where</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+
+    <SetCondition>SpokeToStarshipCommunityNomaiThisLoop</SetCondition>
+    <SetPersistentCondition>SpokeToStarshipCommunityNomaiEver</SetPersistentCondition>
+  </DialogueNode>
+
+  <!-- Entry condition has to be set manually from a persistent condition -->
+  <DialogueNode>
+    <Name>START</Name>
+    <EntryCondition>SpokeToStarshipCommunityNomaiEver</EntryCondition>
+    <Dialogue>
+      <Page>Greetings visitor!</Page>
+    </Dialogue>
+    <SetCondition>SpokeToStarshipCommunityNomaiThisLoop</SetCondition>
+    <DialogueTarget>Menu</DialogueTarget>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>START_2</Name>
+    <EntryCondition>SpokeToStarshipCommunityNomaiThisLoop</EntryCondition>
+    <Dialogue>
+      <Page>Hello again visitor!</Page>
+    </Dialogue>
+    <DialogueTarget>Menu</DialogueTarget>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>Menu</Name>
+    <Dialogue>
+      <Page>What is on your mind, traveler?</Page>
+    </Dialogue>
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>Who are you?</Text>
+        <DialogueTarget>Who</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>Where are we?</Text>
+        <DialogueTarget>Where</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <CancelledPersistentCondition>KNOWS_MEDITATION</CancelledPersistentCondition>
+        <Text>Hey, do you know how to meditate?</Text>
+        <DialogueTarget>TeachMeditation</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>Goodbye.</Text>
+        <DialogueTarget>Goodbye</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>Where</Name>
+    <Dialogue>
+      <Page>I am unsure. I stumbled on this vessel, as did you. My own ship is parked in orbit around a nearby white dwarf.</Page>
+      <Page>I have synced the warp transmitter behind me to the receiver on board my vessel, if you wish to visit my ship and peruse the notes I have made on this system.</Page>
+      <Page>Perhaps system is the wrong word: There seem to be a variable number of <![CDATA[<color="orange">]]>miniature<![CDATA[</color>]]> star systems clustered here, with this derelict vessel at the center.</Page>
+      <Page>Each platform in this vessel seems to relate to each of these small systems. I encourage you to investigate each of them, and relay to me your findings!</Page>
+    </Dialogue>
+    <SetPersistentCondition>HasSpokenToPing</SetPersistentCondition>
+    <DialogueTarget>Menu</DialogueTarget>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>Who</Name>
+    <Dialogue>
+      <Page>My name is Ping. I am an explorer, much like yourself, I imagine.</Page>
+      <Page>I believe we may have met previously? In a similarly clustered star system in the past?</Page>
+      <Page>It took me quite some time to fix the warp transmitter behind me, so I am at the moment quite fatigued.</Page>
+      <Page>I will allow you to get a headstart on exploring this station. I should be able to join you in this endeavor in approximately <![CDATA[<color="orange">]]>22 minutes<![CDATA[</color>]]>.</Page>
+    </Dialogue>
+    <RevealFacts>
+      <FactID>STARSHIP_COMMUNITY_PING_FACT</FactID>
+    </RevealFacts>
+    <SetPersistentCondition>HasSpokenToPing</SetPersistentCondition>
+    <DialogueTarget>Menu</DialogueTarget>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>Goodbye</Name>
+    <Dialogue>
+      <Page>Farewell visitor! Safe travels to you.</Page>
+    </Dialogue>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>TeachMeditation</Name>
+    <Dialogue>
+      <Page>Yes, I do! Here, let me teach you.</Page>
+    </Dialogue>
+
+    <DialogueOptionsList>
+      <DialogueOption>
+        <Text>Okay, let's do this.</Text>
+        <DialogueTarget>StartMeditation</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
+        <Text>Wait, nevermind.</Text>
+        <DialogueTarget>Menu</DialogueTarget>
+      </DialogueOption>
+    </DialogueOptionsList>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>StartMeditation</Name>
+    <Dialogue>
+      <Page>Okay traveler, breathe in, and breathe out...</Page>
+    </Dialogue>
+    <SetCondition>PingStartMeditation</SetCondition>
+  </DialogueNode>
+
+</DialogueTree>

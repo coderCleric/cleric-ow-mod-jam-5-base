@@ -742,6 +742,17 @@
         "parentPath": "Sector/Note",
         "isRelativeToParent": true,
         "xmlFile": "planets/text/Note.xml"
+      },
+      {
+        "pathToAnimController": "Sector/Nomai",
+        "lookAtRadius": 10,
+        "isRelativeToParent": true,
+        "position": {
+          "y": 1.6
+        },
+        "radius": 1.5,
+        "range": 4,
+        "xmlFile": "planets/text/Nomai.xml"
       }
     ],
     "warpReceivers": [

@@ -30,7 +30,8 @@ public class StarshipCommunityHelper : MonoBehaviour
             return porcelain;
         }
         else if (material.name.Contains("Structure_NOM_PropTile_Color_mat") ||
-            material.name.Contains("Structure_NOM_SandStone_Darker_mat")
+            material.name.Contains("Structure_NOM_SandStone_Darker_mat") ||
+            material.name.Contains("Structure_NOM_WarpReceiver_mat")
             )
         {
             return black;
@@ -72,6 +73,9 @@ public class StarshipCommunityHelper : MonoBehaviour
 
             var starship = ModJam5.Instance.NewHorizons.GetPlanet("Starship Community");
             ReplaceMaterials(starship);
+
+            var platform = ModJam5.Instance.NewHorizons.GetPlanet("Example Platform");
+            ReplaceMaterials(platform);
 
             // Add previews
             /*
