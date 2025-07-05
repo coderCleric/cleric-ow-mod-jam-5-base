@@ -4,6 +4,7 @@
     {
       "disableNHPlanets": true,
       "shareTitleScreen": false,
+/*
       "music": "OW_TravelerTheme_piano",
       "menuTextTint": {
         "r": 180,
@@ -22,6 +23,7 @@
           }
         ]
       }
+  */
     }
   ]
 }

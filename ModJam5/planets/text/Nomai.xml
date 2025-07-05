@@ -59,6 +59,10 @@
         <DialogueTarget>Where</DialogueTarget>
       </DialogueOption>
       <DialogueOption>
+        <Text>How do I get out of here?</Text>
+        <DialogueTarget>Leave</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
         <CancelledPersistentCondition>KNOWS_MEDITATION</CancelledPersistentCondition>
         <Text>Hey, do you know how to meditate?</Text>
         <DialogueTarget>TeachMeditation</DialogueTarget>
@@ -93,6 +97,17 @@
     <RevealFacts>
       <FactID>JAM_5_BASE_STARSHIP_COMMUNITY_PING_FACT</FactID>
     </RevealFacts>
+    <SetPersistentCondition>HasSpokenToPing</SetPersistentCondition>
+    <DialogueTarget>Menu</DialogueTarget>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>Leave</Name>
+    <Dialogue>
+      <Page>Hypothesis: The platforms circling the central hub of this station may contain methods of egress.</Page>
+      <Page>Alternatively, you could just fly out through the hole in the ceiling.</Page>
+      <Page>Surely that's how you landed here in the first place, right?</Page>
+    </Dialogue>
     <SetPersistentCondition>HasSpokenToPing</SetPersistentCondition>
     <DialogueTarget>Menu</DialogueTarget>
   </DialogueNode>
