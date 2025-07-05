@@ -76,6 +76,9 @@ internal static class MiniSolarSystemOrganizer
 
         // Verify mods are all valid
         var angularPosition = new Dictionary<string, float>();
+        // Put ping in front of the spawning player
+        jamEntries = jamEntries.OrderBy(x => x.ModHelper.Manifest.UniqueName != ModJam5.Instance.ModHelper.Manifest.UniqueName)
+                .ThenBy(x => x.ModHelper.Manifest.UniqueName).ToArray();
         for (int i = 0; i < jamEntries.Length; i++)
         {
             var mod = jamEntries[i];
@@ -101,7 +104,14 @@ internal static class MiniSolarSystemOrganizer
             center.Config.Base.centerOfSolarSystem = false;
             center.Config.Orbit.isStatic = true;
             var angle = angularPosition[center.Mod.ModHelper.Manifest.UniqueName];
-            center.Config.Orbit.staticPosition = Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward * MINI_SYSTEM_DISTANCE;
+            if (center.Config.name == "Starship Community")
+            {
+                center.Config.Orbit.staticPosition = (Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward * 300) + Vector3.up * 100;
+            }
+            else
+            {
+                center.Config.Orbit.staticPosition = Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward * MINI_SYSTEM_DISTANCE;
+            }
             center.Config.Orbit.primaryBody = "Central Station";
             var dict = new Dictionary<string, object>();
             if (center.Config.extras is JObject jObject)

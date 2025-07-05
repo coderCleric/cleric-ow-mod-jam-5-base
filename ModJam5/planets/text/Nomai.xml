@@ -73,9 +73,9 @@
   <DialogueNode>
     <Name>Where</Name>
     <Dialogue>
-      <Page>I am unsure. I stumbled on this vessel, as did you. My own ship is parked in orbit around a nearby white dwarf.</Page>
+      <Page>I am unsure. I stumbled on this vessel, as did you. My own ship is parked nearby.</Page>
       <Page>I have synced the warp transmitter behind me to the receiver on board my vessel, if you wish to visit my ship and peruse the notes I have made on this system.</Page>
-      <Page>Perhaps system is the wrong word: There seem to be a variable number of <![CDATA[<color="orange">]]>miniature<![CDATA[</color>]]> star systems clustered here, with this derelict vessel at the center.</Page>
+      <Page>Perhaps system is the wrong word: We seem to be in a cluster of <![CDATA[<color="orange">]]>miniature<![CDATA[</color>]]> star systems here, with this derelict vessel at the center.</Page>
       <Page>Each platform in this vessel seems to relate to each of these small systems. I encourage you to investigate each of them, and relay to me your findings!</Page>
     </Dialogue>
     <SetPersistentCondition>HasSpokenToPing</SetPersistentCondition>
@@ -86,9 +86,9 @@
     <Name>Who</Name>
     <Dialogue>
       <Page>My name is Ping. I am an explorer, much like yourself, I imagine.</Page>
-      <Page>I believe we may have met previously? In a similarly clustered star system in the past?</Page>
-      <Page>It took me quite some time to fix the warp transmitter behind me, so I am at the moment quite fatigued.</Page>
-      <Page>I will allow you to get a headstart on exploring this station. I should be able to join you in this endeavor in approximately <![CDATA[<color="orange">]]>22 minutes<![CDATA[</color>]]>.</Page>
+      <Page>I believe we may have met previously?</Page>
+      <Page>I am eager to explore this system, I imagine you are as well. However, it took me quite some time to fix the warp transmitter behind me and I am at the moment quite fatigued.</Page>
+      <Page>I will allow you to get a headstart on exploring this station while I take a short rest! I should be able to join you in this endeavor in approximately <![CDATA[<color="orange">]]>22 minutes<![CDATA[</color>]]>.</Page>
     </Dialogue>
     <RevealFacts>
       <FactID>JAM_5_BASE_STARSHIP_COMMUNITY_PING_FACT</FactID>

@@ -47,23 +47,20 @@
     "showMinimap": false,
     "gravityFallOff": "linear",
     "surfaceSize": 0,
-    "soiOverride": 0,
-    "surfaceGravity": 0
+    "soiOverride": 200,
+    "surfaceGravity": 0,
+    "centerOfSolarSystem": true
   },
 
   "Orbit": {
-    "staticPosition": {
-      "y": 1000.0,
-      "x": 500
-    },
     "isStatic": true,
     "isTidallyLocked": true,
     "alignmentAxis": {
       "x": 1,
-      "y": 1,
-      "z": 0
+      "y": -2,
+      "z": 0.3
     },
-    "primaryBody": "Supernova Remnant"
+    "primaryBody": "Central Station"
   },
 
   "Props": {
