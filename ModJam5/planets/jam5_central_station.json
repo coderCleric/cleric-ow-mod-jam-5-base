@@ -94,7 +94,7 @@
   "ShipLog": {
     "mapMode": {
       "revealedSprite": "planets/shiplog/central_station.png",
-      "scale": 2
+      "scale": 1.5
     },
     "xmlFile": "planets/shiplog/CentralStation.xml",
     "spriteFolder": "planets/shiplog/sprites"

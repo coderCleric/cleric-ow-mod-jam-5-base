@@ -114,6 +114,13 @@ namespace ModJam5
             }
 
             ModHelper.Console.WriteLine("Loaded into Jam 5 system!", MessageType.Success);
+
+            ModHelper.Events.Unity.FireInNUpdates(() =>
+            {
+                // So stupid but tidal locking is dumb and honestly nh should just let u set rotation directly but i cant be bothered
+                // Some sort of euler angle-y degeneracy breaking here
+                NewHorizons.GetPlanet("Starship Community").transform.rotation = Quaternion.Euler(307.7599f, 131.2078f, 19.5048f);
+            }, 10);
         }
 
         public void CustomBuilder(GameObject planet, string extrasConfig)
