@@ -1,0 +1,17 @@
+﻿﻿<DialogueTree xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/dialogue_schema.xsd">
+  <NameField>SIGN</NameField>
+
+  <DialogueNode>
+    <Name>START</Name>
+    <EntryCondition>DEFAULT</EntryCondition>
+    <Dialogue>
+      <Page>Thank you Streetlights Behind the Trees for making the two Nomai vessel models used in this jam!</Page>
+      <Page>Also thanks hearth1an for the texture used for the modern Nomai.</Page>
+    </Dialogue>
+    <RevealFacts>
+      <FactID>STARSHIP_COMMUNITY_EXPLORE_FACT</FactID>
+    </RevealFacts>
+    <SetPersistentCondition>HasReadNoteInStarship</SetPersistentCondition>
+  </DialogueNode>
+
+</DialogueTree>

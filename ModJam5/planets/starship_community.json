@@ -588,20 +588,6 @@
         }
       },
       {
-        "rename": "Nomai",
-        "path": "QuantumMoon_Body/Sector_QuantumMoon/State_EYE/Interactables_EYEState/ConversationPivot/Character_NOM_Solanum/Nomai_ANIM_SkyWatching_Idle",
-        "position": {
-          "x": 5.810219,
-          "y": -22.26209,
-          "z": -1.100004
-        },
-        "rotation": {
-          "x": 306.199,
-          "y": 270,
-          "z": 270
-        }
-      },
-      {
         "rename": "Note",
         "path": "TimberHearth_Body/Sector_TH/Sector_Village/Sector_Observatory/Interactables_Observatory/Prefab_HEA_DeepFieldExhibit/DeepFieldNotes_1/plaque_paper_1 (1)",
         "position": {
@@ -674,41 +660,6 @@
           "y": 85.8949,
           "z": 90
         }
-      },
-      {
-        "path": "CaveTwin_Body/Sector_CaveTwin/Sector_SouthHemisphere/Sector_EscapePod/Interactables_EscapePod/EscapePod_VisibleFrom_Far/DistressBeaconTransmitter/Props_NOM_Transponder/Upper_Housing",
-        "position": {
-          "x": -21,
-          "y": -4.6,
-          "z": -1
-        },
-        "rotation": {
-          "x": 311,
-          "y": 270,
-          "z": 270
-        },
-        "rename": "EggStarBase"
-      },
-      {
-        "path": "CaveTwin_Body/Sector_CaveTwin/Sector_SouthHemisphere/Sector_EscapePod/Interactables_EscapePod/EscapePod_VisibleFrom_Far/DistressBeaconTransmitter/Props_NOM_Transponder/Upper_Housing",
-        "position": {
-          "x": 9.5,
-          "y": 20,
-          "z": -1
-        },
-        "rotation": {
-          "x": 311,
-          "y": 270,
-          "z": 270
-        },
-        "rename": "AnchorBase"
-      },
-      {
-        "deactivationCondition": "DEFAULT",
-        "activationCondition": "VEIL_LIFTED",
-        "blinkWhenActiveChanged": true,
-        "keepLoaded": false,
-        "rename": "VeilLiftedRoot"
       }
     ],
     "translatorText": [
@@ -788,20 +739,24 @@
     ],
     "dialogue": [
       {
-        "pathToAnimController": "Sector/Nomai",
-        "lookAtRadius": 10,
-        "isRelativeToParent": true,
-        "position": {
-          "y": 1.6
-        },
-        "radius": 1.5,
-        "range": 4,
-        "xmlFile": "planets/text/Nomai.xml"
-      },
-      {
         "parentPath": "Sector/Note",
         "isRelativeToParent": true,
         "xmlFile": "planets/text/Note.xml"
+      }
+    ],
+    "warpReceivers": [
+      {
+        "position": {
+          "x": 0,
+          "y": -1.6,
+          "z": 0
+        },
+        "rotation": {
+          "x": 90,
+          "y": 90,
+          "z": 90
+        },
+        "frequency": "ModJam5_Example"
       }
     ]
   },

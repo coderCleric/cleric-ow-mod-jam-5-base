@@ -94,6 +94,8 @@ namespace ModJam5
             NewHorizons.RegisterCustomBuilder(CustomBuilder);
 
             ModHelper.Events.Unity.FireOnNextUpdate(FixCompatIssues);
+
+            this.gameObject.AddComponent<StarshipCommunityHelper>();
         }
 
         public void OnCompleteSceneLoad(OWScene previousScene, OWScene newScene)
@@ -123,7 +125,7 @@ namespace ModJam5
             try
             {
                 var dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(extrasConfig);
-                if (dict["isCenterOfMiniSystem"] is bool isCenter && isCenter)
+                if (dict.TryGetValue("isCenterOfMiniSystem", out var isCenter) && isCenter is bool isCenterBool && isCenterBool)
                 {
                     // Todo: big sphere
                     GameObject sphereGO = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -150,6 +152,21 @@ namespace ModJam5
                     mesh.triangles = triangles;
                     sphereGO.SetActive(ShowAllowedVolume);
                     allowedVolumeObjects.Add(sphereGO);
+                }
+                if (dict["isPlatform"] is bool isPlatform && isPlatform)
+                {
+                    var platformAngle = 0f;
+                    if (dict.TryGetValue("angle", out var angle) && angle is float angleFloat)
+                    {
+                        platformAngle = angleFloat * 360 / (2f * Mathf.PI);
+                    }
+
+                    DetailBuilder.Make(planet, null, this, new DetailInfo()
+                    {
+                        assetBundle = "planets/assets/jam5bundle",
+                        path = "Assets/Jam 5/root-jam5-start-platform.prefab",
+                        rotation = new Vector3(0, platformAngle, 0)
+                    });
                 }
             }
             catch

@@ -9,6 +9,22 @@
     "surfaceGravity": 10,
     "centerOfSolarSystem": true
   },
+  "AsteroidBelt": {
+    "amount": 7,
+    "innerRadius": 1000,
+    "outerRadius": 1000,
+    "inclination": 12,
+    "gravity": 0.4,
+    "procGen": {
+      "color": {
+        "r": 100,
+        "g": 80,
+        "b": 60
+      },
+      "material": "rock",
+      "scale": 100
+    }
+  },
   "Orbit": {
     "staticPosition": {
       "x": 1000,

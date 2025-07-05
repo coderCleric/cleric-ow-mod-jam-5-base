@@ -72,6 +72,7 @@ internal static class MiniSolarSystemOrganizer
         var centers = bodies.Where(x => x.Config.Base.centerOfSolarSystem && x.Config.name != "Central Station");
         var staticBodies = bodies.Where(x => x.Config.Orbit.isStatic || x.Config.Orbit.staticPosition != null)
                 .Where(x => !x.Config.Base.centerOfSolarSystem).Where(x => !centers.Any(y => y.Config.name == x.Config.name));
+        var platforms = bodies.Where(ModJam5.IsPlatform);
 
         // Verify mods are all valid
         var angularPosition = new Dictionary<string, float>();
@@ -83,9 +84,13 @@ internal static class MiniSolarSystemOrganizer
             {
                 ModJam5.LogError($"INVALID JAM ENTRY {mod.ModHelper.Manifest.UniqueName} HAS NO CENTER");
             }
+            if (!platforms.Any(x => x.Mod.ModHelper.Manifest.UniqueName == mod.ModHelper.Manifest.UniqueName))
+            {
+                ModJam5.LogError($"INVALID JAM ENTRY {mod.ModHelper.Manifest.UniqueName} HAS NO PLATFORM");
+            }
         }
 
-        var centerBodyNames = new List<string>();
+        var ignoreStaticBodies = new List<string>();
 
         foreach (var center in centers)
         {
@@ -105,14 +110,33 @@ internal static class MiniSolarSystemOrganizer
             dict["isCenterOfMiniSystem"] = true;
             center.Config.extras = JObject.FromObject(dict);
 
-            centerBodyNames.Add(center.Config.name.Trim().ToLowerInvariant());
+            ignoreStaticBodies.Add(center.Config.name.Trim().ToLowerInvariant());
+        }
+
+        foreach (var platform in platforms)
+        {
+            var dict = new Dictionary<string, object>();
+            if (platform.Config.extras is JObject jObject)
+            {
+                dict = jObject.ToObject<Dictionary<string, object>>();
+            }
+            dict["angle"] = angularPosition[platform.Mod.ModHelper.Manifest.UniqueName];
+            platform.Config.extras = JObject.FromObject(dict);
+
+            ignoreStaticBodies.Add(platform.Config.name.Trim().ToLowerInvariant());
         }
 
         foreach (var staticBody in staticBodies)
         {
             ModJam5.LogDebug($"Fixing static body position {staticBody.Config.name}");
 
-            if (centerBodyNames.Contains(staticBody.Config.name.Trim().ToLowerInvariant()))
+            if (ignoreStaticBodies.Contains(staticBody.Config.name.Trim().ToLowerInvariant()))
+            {
+                // No idea why this happens
+                continue;
+            }
+
+            if (ignoreStaticBodies.Contains(staticBody.Config.name.Trim().ToLowerInvariant()))
             {
                 // No idea why this happens
                 continue;
