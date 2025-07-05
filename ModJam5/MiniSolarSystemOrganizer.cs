@@ -1,20 +1,14 @@
 ﻿using NewHorizons.External;
 using Newtonsoft.Json.Linq;
 using OWML.Common;
-using OWML.Utils;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Analytics;
 
 namespace ModJam5;
 
 internal static class MiniSolarSystemOrganizer
 {
-    public const float BRAMBLE_PLANE_DISTANCE = 20000f;
     public const float MINI_SYSTEM_RADIUS = 2500f;
     public const float MINI_SYSTEM_DISTANCE = 10000f;
 

@@ -1,21 +1,18 @@
-﻿using System.Reflection;
-using HarmonyLib;
+﻿using HarmonyLib;
 using NewHorizons;
+using NewHorizons.Builder.Atmosphere;
+using NewHorizons.Builder.Props;
+using NewHorizons.External;
+using NewHorizons.External.Modules.Props;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using OWML.Common;
 using OWML.ModHelper;
-using System.Linq;
-using NewHorizons.External;
-using Newtonsoft.Json.Linq;
 using System;
-using UnityEngine;
-using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Drawing;
-using NewHorizons.External.SerializableData;
-using NewHorizons.Builder.Props;
-using NewHorizons.External.Modules.Props;
-using NewHorizons.Builder.Atmosphere;
-using NewHorizons.Utility.OuterWilds;
+using System.Linq;
+using System.Reflection;
+using UnityEngine;
 
 namespace ModJam5
 {
@@ -155,7 +152,7 @@ namespace ModJam5
                     GameObject sphereGO = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                     sphereGO.transform.parent = planet.transform;
                     sphereGO.transform.localPosition = Vector3.zero;
-                    sphereGO.transform.localScale = Vector3.one * MiniSolarSystemOrganizer.MINI_SYSTEM_RADIUS;
+                    sphereGO.transform.localScale = Vector3.one * 2f * MiniSolarSystemOrganizer.MINI_SYSTEM_RADIUS;
                     sphereGO.GetComponent<Collider>().enabled = false;
                     sphereGO.GetComponent<MeshRenderer>().material.color = UnityEngine.Color.white;
                     sphereGO.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
