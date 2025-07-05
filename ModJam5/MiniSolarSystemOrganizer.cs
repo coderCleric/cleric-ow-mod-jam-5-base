@@ -134,6 +134,9 @@ internal static class MiniSolarSystemOrganizer
             dict["angle"] = angularPosition[platform.Mod.ModHelper.Manifest.UniqueName];
             platform.Config.extras = JObject.FromObject(dict);
 
+            platform.Config.ReferenceFrame ??= new();
+            platform.Config.ReferenceFrame.enabled = false;
+
             ignoreStaticBodies.Add(platform.Config.name.Trim().ToLowerInvariant());
         }
 

@@ -15,6 +15,7 @@ using NewHorizons.External.SerializableData;
 using NewHorizons.Builder.Props;
 using NewHorizons.External.Modules.Props;
 using NewHorizons.Builder.Atmosphere;
+using NewHorizons.Utility.OuterWilds;
 
 namespace ModJam5
 {
@@ -128,10 +129,15 @@ namespace ModJam5
                 {
                     clouds = new()
                     {
-                        innerCloudRadius = 2000,
+                        innerCloudRadius = 100,
                     }
                 }, null, 0);
             }, 10);
+
+            ModHelper.Events.Unity.FireInNUpdates(() =>
+            {
+                GameObject.Find("PlayerHUD/HelmetOnUI/UICanvas/SecondaryGroup/HUD_Minimap/Minimap_Root").GetComponent<Minimap>().SetComponentsEnabled(false);
+            }, 40);
         }
 
         public void CustomBuilder(GameObject planet, string extrasConfig)

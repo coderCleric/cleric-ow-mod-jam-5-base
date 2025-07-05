@@ -2,7 +2,6 @@
   "$schema": "https://raw.githubusercontent.com/xen-42/outer-wilds-new-horizons/main/NewHorizons/Schemas/body_schema.json",
   "name": "Central Station",
   "starSystem": "Jam5",
-  "removeChildren": [ "Sector/PlatformTest" ],
 
   "MapMarker": {
     "enabled": true
@@ -72,15 +71,7 @@
         "path": "root-jam5-start.prefab",
         "rename": "Central Station",
         "position": {},
-        "rotation": {},
-        "keepLoaded": true
-      },
-      {
-        "assetBundle": "planets/assets/jam5bundle",
-        "path": "root-jam5-start-platform.prefab",
-        "rename": "PlatformTest",
-        "position": {},
-        "rotation": {},
+        "rotation": {"y": -60},
         "keepLoaded": true
       }
     ]
