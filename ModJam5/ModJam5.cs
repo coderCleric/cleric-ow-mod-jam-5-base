@@ -232,18 +232,6 @@ namespace ModJam5
             }
             return false;
         }
-
-        public static bool IsCenterOfMiniSystem(NewHorizonsBody body)
-        {
-            if (body.Config.extras is JObject extras)
-            {
-                if (GetBool("isCenterOfMiniSystem", extras))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
     }
 
 }

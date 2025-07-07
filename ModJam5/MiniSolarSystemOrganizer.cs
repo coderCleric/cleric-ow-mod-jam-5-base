@@ -112,7 +112,10 @@ internal static class MiniSolarSystemOrganizer
             {
                 dict = jObject.ToObject<Dictionary<string, object>>();
             }
-            dict["isCenterOfMiniSystem"] = true;
+            if (center.Config.name != "Starship Community")
+            {
+                dict["isCenterOfMiniSystem"] = true;
+            }
             center.Config.extras = JObject.FromObject(dict);
 
             ignoreStaticBodies.Add(center.Config.name.Trim().ToLowerInvariant());
