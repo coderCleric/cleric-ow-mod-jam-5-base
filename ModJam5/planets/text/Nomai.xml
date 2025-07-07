@@ -142,7 +142,7 @@
     <Dialogue>
       <Page>Okay traveler, breathe in, and breathe out...</Page>
     </Dialogue>
-    <SetCondition>PingStartMeditation</SetCondition>
+    <SetCondition>Jam5PingStartMeditation</SetCondition>
   </DialogueNode>
 
 </DialogueTree>

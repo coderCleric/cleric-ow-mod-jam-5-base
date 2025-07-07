@@ -95,6 +95,8 @@ namespace ModJam5
             ModHelper.Events.Unity.FireOnNextUpdate(FixCompatIssues);
 
             this.gameObject.AddComponent<StarshipCommunityHelper>();
+
+            PingConditionHandler.Setup();
         }
 
         public void OnCompleteSceneLoad(OWScene previousScene, OWScene newScene)
@@ -148,7 +150,7 @@ namespace ModJam5
                 var dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(extrasConfig);
                 if (dict.TryGetValue("isCenterOfMiniSystem", out var isCenter) && isCenter is bool isCenterBool && isCenterBool)
                 {
-                    // Todo: big sphere
+                    // big sphere
                     GameObject sphereGO = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                     sphereGO.transform.parent = planet.transform;
                     sphereGO.transform.localPosition = Vector3.zero;
@@ -157,7 +159,6 @@ namespace ModJam5
                     sphereGO.GetComponent<MeshRenderer>().material.color = UnityEngine.Color.white;
                     sphereGO.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
                     sphereGO.GetComponent<MeshRenderer>().receiveShadows = false;
-                    //sphereGO.GetComponent<MeshRenderer>().material = new Material(Shader.Find("Sprites/Default"));
                     var mesh = sphereGO.GetComponent<MeshFilter>().mesh;                    
                     var normals = mesh.normals;
                     for (var i = 0; i < normals.Length; i++) normals[i] = -normals[i];
