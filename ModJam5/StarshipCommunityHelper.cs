@@ -24,7 +24,8 @@ public class StarshipCommunityHelper : MonoBehaviour
         if (material.name.Contains("Structure_NOM_Whiteboard_mat") ||
             material.name.Contains("Structure_NOM_SandStone_mat") ||
             material.name.Contains("Structure_NOM_SandStone_Dark_mat") ||
-            material.name.Contains("ObservatoryInterior_HEA_VillagePlanks_mat")
+            material.name.Contains("ObservatoryInterior_HEA_VillagePlanks_mat") ||
+            material.name.Contains("Props_NOM_SmallTractorBeam_mat")
             )
         {
             return porcelain;
@@ -76,6 +77,17 @@ public class StarshipCommunityHelper : MonoBehaviour
 
             var platform = ModJam5.Instance.NewHorizons.GetPlanet("Example Platform");
             ReplaceMaterials(platform);
+
+            var centralStation = ModJam5.Instance.NewHorizons.GetPlanet("Central Station");
+            ReplaceMaterials(centralStation);
+
+            var beam = centralStation.transform.Find("Sector/TractorBeam").GetComponentInChildren<TractorBeamFluid>();
+            beam.transform.localPosition = new Vector3(0, 12.8f, 0);
+            beam.transform.localRotation = Quaternion.Euler(0, 180, 180);
+            beam.transform.Find("BeamParticles").gameObject.SetActive(false);
+            beam.transform.Find("BeamRings").gameObject.SetActive(false);
+            beam.transform.Find("BeamParticlesReverse").gameObject.SetActive(true);
+            beam.transform.Find("BeamRingsReverse").gameObject.SetActive(true);
 
             // Add previews
             /*

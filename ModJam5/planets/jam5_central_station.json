@@ -73,6 +73,46 @@
         "position": {},
         "rotation": { "y": -60 },
         "keepLoaded": true
+      },
+      {
+        "path": "Moon_Body/Sector_THM/Interactables_THM/Prefab_HEA_FuelTank",
+        "position": {
+          "x": 6.75,
+          "y": 0.35,
+          "z": 7.5596
+        },
+        "rotation": {
+          "x": 330,
+          "y": 35.3759,
+          "z": 0
+        }
+      },
+      {
+        "path": "BrittleHollow_Body/Sector_BH/Sector_NorthHemisphere/Sector_NorthPole/Sector_HangingCity/Sector_HangingCity_BlackHoleForge/BlackHoleForgePivot/Props_BlackHoleForge/Prefab_NOM_SimpleChair_NoSkeleton (1)",
+        "position": {
+          "x": 6.745665,
+          "y": -0.2,
+          "z": 7.018027
+        },
+        "rotation": {
+          "x": 0,
+          "y": 38.30547,
+          "z": 0
+        }
+      },
+      {
+        "path": "BrittleHollow_Body/Sector_BH/Sector_NorthHemisphere/Sector_NorthPole/Sector_HangingCity/Sector_HangingCity_District1/Interactables_HangingCity_District1/Prefab_NOM_TractorBeam",
+        "position": {
+          "x": -8.9158,
+          "y": -0.2,
+          "z": 6.2033
+        },
+        "rotation": {
+          "x": 0,
+          "y": 292,
+          "z": 0
+        },
+        "rename": "TractorBeam"
       }
     ]
   },
