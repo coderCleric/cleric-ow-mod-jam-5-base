@@ -14,7 +14,7 @@ For the fifth mod jam (theme MINIATURE) all mods take place in the same star sys
 
 ## For entrants:
 
-Entries **must** take place in a shared solar system (named `"Jam5"`). Each entry has two components: A starting platform in the Central Station, and a 2500m radius (5000m diameter) mini solar system. This space requirement includes hidden locations like Dark Bramble dimensions and Dreamworlds. **Each entry is required to have a starting platform and a centerOfSolarSystem body.**
+Entries **must** take place in a shared solar system (named `"Jam5"`). For compatibility fixes to be properly applied, your mod **must** depend on this base mod. Each entry has two components: A starting platform in the Central Station, and a 2500m radius (5000m diameter) mini solar system. This space requirement includes hidden locations like Dark Bramble dimensions and Dreamworlds. **Each entry is required to have a starting platform and a centerOfSolarSystem body.**
 
 There is an example project repo [here](https://github.com/xen-42/ow-mod-jam-5-example).
 
@@ -55,4 +55,5 @@ Avoid using credits that quit to the main menu after beating your mod: Players a
 ## TL;DR:
 1. Mod starts at a platform in the central station (see config above)
 2. Mod takes place within 2500m radius sphere with central body marked `"centerOfSolarSystem": true` (includes hidden dimensions).
-3. Please have ship logs.
+3. Mod must list this mod as a dependency in its manifest
+4. Please have ship logs.
