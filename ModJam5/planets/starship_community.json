@@ -64,6 +64,16 @@
   },
 
   "Props": {
+    "entryLocation": [
+      {
+        "id": "JAM_5_BASE_STARSHIP_COMMUNITY_ENTRY",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    ],
     "details": [
       {
         "assetBundle": "planets/assets/jam3bundle",
