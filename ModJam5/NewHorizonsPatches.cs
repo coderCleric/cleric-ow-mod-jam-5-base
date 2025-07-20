@@ -25,9 +25,9 @@ internal class NewHorizonsPatches
     {
         Delay.FireOnNextUpdate(() =>
         {
-            if (__instance._sunLight.range > 2500)
+            if (__instance._sunLight.range > 3500)
             {
-                __instance._sunLight.range = 2500;
+                __instance._sunLight.range = 3500;
             }
         });
     }
