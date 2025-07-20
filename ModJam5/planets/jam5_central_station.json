@@ -114,6 +114,16 @@
         },
         "rename": "TractorBeam"
       }
+    ],
+    "entryLocation": [
+      {
+        "id": "JAM_5_BASE_CENTRAL_STATION_ROOT",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
     ]
   },
 
