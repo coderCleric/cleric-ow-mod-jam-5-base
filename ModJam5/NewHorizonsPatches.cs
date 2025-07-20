@@ -27,9 +27,11 @@ internal class NewHorizonsPatches
     {
         Delay.FireOnNextUpdate(() =>
         {
-            if (__instance.Light.range > 5000)
+            // make it stars dont overlap with other systems too much
+            // just same range as station range so planets near 2500 arent too dim
+            if (__instance.Light.range > 10000)
             {
-                __instance.Light.range = 5000;
+                __instance.Light.range = 10000;
             }
         });
     }

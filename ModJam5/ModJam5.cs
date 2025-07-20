@@ -122,6 +122,7 @@ namespace ModJam5
                 // Some sort of euler angle-y degeneracy breaking here
                 NewHorizons.GetPlanet("Starship Community").transform.rotation = Quaternion.Euler(307.7599f, 131.2078f, 19.5048f);
 
+                /*
                 // This is silly and jank and NH should support this better
                 // Stops the potentially like 10 different stars all casting weird shadows all over the station
                 SunOverrideBuilder.Make(NewHorizons.GetPlanet("Central Station"), null, new NewHorizons.External.Modules.AtmosphereModule()
@@ -131,6 +132,7 @@ namespace ModJam5
                         innerCloudRadius = 100,
                     }
                 }, null, 0);
+                */
             }, 10);
 
             ModHelper.Events.Unity.FireInNUpdates(() =>
