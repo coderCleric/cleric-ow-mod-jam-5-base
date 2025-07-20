@@ -49,18 +49,6 @@ internal static class MiniSolarSystemOrganizer
 
             mapMode.manualPosition = null;
             mapMode.manualNavigationPosition = null;
-
-            // If it's a moon with no ship logs, just get rid of it
-            var isMoon = !string.IsNullOrEmpty(body.Config.Orbit.primaryBody) && body.Config.Orbit.primaryBody != "Jam 3 Sun";
-            var shouldRemove = isMoon && !hadShipLog;
-            if (shouldRemove)
-            {
-                mapMode.remove = true;
-            }
-            else if (isMoon)
-            {
-                mapMode.scale = 0.5f;
-            }
         }
 
         var centers = bodies.Where(x => x.Config.Base.centerOfSolarSystem && x.Config.name != "Central Station");
