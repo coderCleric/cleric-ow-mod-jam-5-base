@@ -129,6 +129,7 @@ internal static class MiniSolarSystemOrganizer
 
             platform.Config.ReferenceFrame ??= new();
             platform.Config.ReferenceFrame.enabled = false;
+            platform.Config.Base.showMinimap = false;
 
             ignoreStaticBodies.Add(platform.Config.name.Trim().ToLowerInvariant());
         }
