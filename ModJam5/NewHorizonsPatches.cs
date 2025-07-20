@@ -1,7 +1,9 @@
 ﻿using HarmonyLib;
+using NewHorizons.Components.Stars;
 using NewHorizons.Handlers;
 using NewHorizons.Utility.DebugTools;
 using NewHorizons.Utility.OWML;
+using UnityEngine;
 
 namespace ModJam5;
 
@@ -20,14 +22,14 @@ internal class NewHorizonsPatches
     public static bool TitleSceneHandler_DisplayBodiesOnTitleScreen() => false;
 
     [HarmonyPostfix]
-    [HarmonyPatch(typeof(SunLightController), nameof(SunLightController.Awake))]
-    public static void SunLightController_Awake(SunLightController __instance)
+    [HarmonyPatch(typeof(StarController), nameof(StarController.Awake))]
+    public static void StarController_Awake(StarController __instance)
     {
         Delay.FireOnNextUpdate(() =>
         {
-            if (__instance._sunLight.range > 3500)
+            if (__instance.Light.range > 5000)
             {
-                __instance._sunLight.range = 3500;
+                __instance.Light.range = 5000;
             }
         });
     }
