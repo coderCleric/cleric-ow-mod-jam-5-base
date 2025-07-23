@@ -66,14 +66,54 @@ internal static class MiniSolarSystemOrganizer
 
         // Verify mods are all valid
         var angularPosition = new Dictionary<string, float>();
-        // Put ping in front of the spawning player
-        jamEntries = jamEntries.OrderBy(x => x.ModHelper.Manifest.UniqueName != ModJam5.Instance.ModHelper.Manifest.UniqueName)
-                .ThenBy(x => x.ModHelper.Manifest.UniqueName).ToArray();
-        for (int i = 0; i < jamEntries.Length - 1; i++)
+
+        ModJam5.Log($"Order systems.");
+        string[] order = [
+            ModJam5.Instance.ModHelper.Manifest.UniqueName,
+            "2walker2.OWJam5ModProject",                //Heliostudy        MAX
+            "TheLoweDown256.TLDJam5",                    //Apostrolytum        Medium (?)
+            "APOLLO.939sPlanetdotSTRUCTURE",            //MagMag            MAX
+            "Trifid.TrifidJam5",                        //Scale                Tiny
+            "LeeSpork.ModJam5",                            //Cat                MAX (Explodes!)
+            "Boreas.Jam5CakeCapere",                    //Patrick Star        Medium
+            "Hawkbar.Terrarium",                        //Lonely Lump        Medium (?) (Expands)
+            "TheSignalJammers.FifthModJam",                //Silver Lining        Medium (?) (Expands)
+            "orclecle.Jam5PingBox",                        //Diorama Interface    Medium (?) (Expands)
+            "Onbvb.catastrophe",                        //Dark Green Star    Large
+            "Vambok.HearthianParable",                    //Parable            Medium
+            "Ender.Beryl.BrightSpark",                    //RGB                Large
+            "MegaPiggy.AnomalyResearchAndContainment",    //Verdant Beacon    Medium-Large
+            "TeamGeswaldo.Jam5",                        //Bruised Brother    Large-Max
+            "Etherpod.T0187",                            //Radio Moon        Small (?)
+        ];
+
+        List<IModBehaviour> orderedMods = [];
+        foreach (var orderName in order)
         {
-            // Skip the base mod
-            var mod = jamEntries[i+1];
-            var angle = 360f * (float)i / (float)(jamEntries.Length - 1);
+            foreach (var mod in jamEntries)
+            {
+                if (mod.ModHelper.Manifest.UniqueName == orderName)
+                {
+                    orderedMods.Add(mod);
+                }
+            }
+        }
+
+        // Just put it anyway and they'll overlap if its like gleeberdome or smthng
+        foreach (var mod in jamEntries)
+        {
+            if (!order.Contains(mod.ModHelper.Manifest.UniqueName))
+            {
+                ModJam5.LogError($"Mod unaccounted for! {mod.ModHelper.Manifest.UniqueName} will cause overlaps!");
+                orderedMods.Add(mod);
+            }
+        }
+
+        for (int i = 0; i < orderedMods.Count - 1; i++)
+        {
+            // Skip the base mod which is first
+            var mod = orderedMods[i+1];
+            var angle = 360f * (float)i / (float)(orderedMods.Count - 1);
             angularPosition[mod.ModHelper.Manifest.UniqueName] = angle;
             if (!centers.Any(x => x.Mod.ModHelper.Manifest.UniqueName == mod.ModHelper.Manifest.UniqueName))
             {
