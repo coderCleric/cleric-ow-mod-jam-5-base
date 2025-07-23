@@ -10,6 +10,7 @@ using OWML.Common;
 using OWML.ModHelper;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
@@ -213,9 +214,9 @@ namespace ModJam5
             Instance.ModHelper.Console.WriteLine(message, MessageType.Error);
         }
 
+        [Conditional("DEBUG")]
         public static void LogDebug(string message)
         {
-            // TODO: if debug
             Instance.ModHelper.Console.WriteLine("DEBUG: " + message, MessageType.Info);
         }
 
