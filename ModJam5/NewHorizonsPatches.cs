@@ -31,7 +31,7 @@ internal class NewHorizonsPatches
 
             // make it stars dont overlap with other systems too much
             // just same range as station range so planets near 2500 arent too dim
-            if (__instance.light != null)
+            if (__instance.light != null && __instance.light.range > 10000)
             {
                 __instance.light.range = 10000;
             }
