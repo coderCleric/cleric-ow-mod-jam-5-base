@@ -78,8 +78,8 @@
     <Name>Where</Name>
     <Dialogue>
       <Page>I am unsure. I stumbled on this vessel, as did you. My own ship is parked nearby.</Page>
-      <Page>I have synced the warp transmitter behind me to the receiver on board my vessel, if you wish to visit my ship and peruse the notes I have made on this system.</Page>
-      <Page>Perhaps system is the wrong word: We seem to be in a cluster of <![CDATA[<color="orange">]]>miniature<![CDATA[</color>]]> star systems here, with this derelict vessel at the center.</Page>
+      <Page>I have synced the warp transmitter at the center of this vessel to the receiver on board my own, if you wish to visit my ship and peruse the notes I have made on this system.</Page>
+      <Page>Perhaps system is the wrong word: We seem to be in a cluster of <![CDATA[<color="orange">]]>miniature<![CDATA[</color>]]> star systems, with this large vessel at the center.</Page>
       <Page>Each platform in this vessel seems to relate to each of these small systems. I encourage you to investigate each of them, and relay to me your findings!</Page>
     </Dialogue>
     <SetPersistentCondition>HasSpokenToPing</SetPersistentCondition>

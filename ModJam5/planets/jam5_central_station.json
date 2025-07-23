@@ -27,7 +27,7 @@
         "position": {
           "x": 0,
           "y": 0,
-          "z": 0
+          "z": 15
         },
         "rotation": {
           "x": 0,
@@ -71,7 +71,7 @@
         "path": "root-jam5-start.prefab",
         "rename": "Central Station",
         "position": {},
-        "rotation": { "y": -60 },
+        "rotation": { "y": 216 },
         "keepLoaded": true,
         "ignoreSun": true
       },
@@ -114,6 +114,58 @@
           "z": 0
         },
         "rename": "TractorBeam"
+      },
+      {
+        "position": {
+          "x": 8.4,
+          "y": -0.2,
+          "z": 5.5
+        },
+        "rotation": {
+          "x": 0,
+          "y": 54,
+          "z": 0
+        },
+        "rename": "Nomai",
+        "path": "QuantumMoon_Body/Sector_QuantumMoon/State_EYE/Interactables_EYEState/ConversationPivot/Character_NOM_Solanum/Nomai_ANIM_SkyWatching_Idle"
+      },
+      {
+        "rename": "Treepot_1",
+        "path": "DB_VesselDimension_Body/Sector_VesselDimension/Props_VesselDimension/Prefab_NOM_NomaiTree_VarDRY_3/GEO_Treepot_3",
+        "position": {
+          "x": -9.4,
+          "y": -0.2,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 270,
+          "z": 0
+        }
+      },
+      {
+        "path": "WhiteholeStation_Body/Sector_WhiteholeStation/Props_WhiteHoleStation/Prefab_NOM_NomaiTree_Var_2/GEO_NomaiTree_1_Trunk",
+        "parentPath": "Sector/Treepot_1",
+        "isRelativeToParent": true
+      },
+      {
+        "rename": "Treepot_2",
+        "path": "DB_VesselDimension_Body/Sector_VesselDimension/Props_VesselDimension/Prefab_NOM_NomaiTree_VarDRY_3/GEO_Treepot_3",
+        "position": {
+          "x": 9.4,
+          "y": -0.2,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 90,
+          "z": 0
+        }
+      },
+      {
+        "path": "WhiteholeStation_Body/Sector_WhiteholeStation/Props_WhiteHoleStation/Prefab_NOM_NomaiTree_Var_2/GEO_NomaiTree_2_Trunk",
+        "parentPath": "Sector/Treepot_2",
+        "isRelativeToParent": true
       }
     ],
     "entryLocation": [
@@ -124,6 +176,30 @@
           "y": 0,
           "z": 0
         }
+      }
+    ],
+    "warpTransmitters": [
+      {
+        "frequency": "ModJam5_Example",
+        "alignmentWindow": 360,
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    ],
+    "dialogue": [
+      {
+        "pathToAnimController": "Sector/Nomai",
+        "lookAtRadius": 10,
+        "isRelativeToParent": true,
+        "position": {
+          "y": 1.6
+        },
+        "radius": 1.5,
+        "range": 4,
+        "xmlFile": "planets/text/Nomai.xml"
       }
     ]
   },

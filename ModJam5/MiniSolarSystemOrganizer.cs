@@ -69,10 +69,11 @@ internal static class MiniSolarSystemOrganizer
         // Put ping in front of the spawning player
         jamEntries = jamEntries.OrderBy(x => x.ModHelper.Manifest.UniqueName != ModJam5.Instance.ModHelper.Manifest.UniqueName)
                 .ThenBy(x => x.ModHelper.Manifest.UniqueName).ToArray();
-        for (int i = 0; i < jamEntries.Length; i++)
+        for (int i = 0; i < jamEntries.Length - 1; i++)
         {
-            var mod = jamEntries[i];
-            var angle = 360f * (float)i / (float)(jamEntries.Length);
+            // Skip the base mod
+            var mod = jamEntries[i+1];
+            var angle = 360f * (float)i / (float)(jamEntries.Length - 1);
             angularPosition[mod.ModHelper.Manifest.UniqueName] = angle;
             if (!centers.Any(x => x.Mod.ModHelper.Manifest.UniqueName == mod.ModHelper.Manifest.UniqueName))
             {
@@ -83,6 +84,7 @@ internal static class MiniSolarSystemOrganizer
                 ModJam5.LogError($"INVALID JAM ENTRY {mod.ModHelper.Manifest.UniqueName} HAS NO PLATFORM");
             }
         }
+        angularPosition[ModJam5.Instance.ModHelper.Manifest.UniqueName] = -10f;
 
         var ignoreStaticBodies = new List<string>();
 

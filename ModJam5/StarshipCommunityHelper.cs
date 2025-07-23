@@ -75,8 +75,8 @@ public class StarshipCommunityHelper : MonoBehaviour
             var starship = ModJam5.Instance.NewHorizons.GetPlanet("Starship Community");
             ReplaceMaterials(starship);
 
-            var platform = ModJam5.Instance.NewHorizons.GetPlanet("Example Platform");
-            ReplaceMaterials(platform);
+            //var platform = ModJam5.Instance.NewHorizons.GetPlanet("Example Platform");
+            //ReplaceMaterials(platform);
 
             var centralStation = ModJam5.Instance.NewHorizons.GetPlanet("Central Station");
             ReplaceMaterials(centralStation);
