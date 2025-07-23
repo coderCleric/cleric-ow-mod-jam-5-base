@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using NewHorizons.Components.SizeControllers;
 using NewHorizons.Components.Stars;
 using NewHorizons.Handlers;
 using NewHorizons.Utility.DebugTools;
@@ -22,17 +23,17 @@ internal class NewHorizonsPatches
     public static bool TitleSceneHandler_DisplayBodiesOnTitleScreen() => false;
 
     [HarmonyPostfix]
-    [HarmonyPatch(typeof(StarController), nameof(StarController.Awake))]
-    public static void StarController_Awake(StarController __instance)
-    {
+    [HarmonyPatch(typeof(StarEvolutionController), "Start")]
+    public static void StarEvolutionController_Start(StarEvolutionController __instance) =>
         Delay.FireOnNextUpdate(() =>
         {
+            if (ModJam5.Instance.NewHorizons.GetCurrentStarSystem() != ModJam5.SystemName) return;
+
             // make it stars dont overlap with other systems too much
             // just same range as station range so planets near 2500 arent too dim
-            if (__instance.Light.range > 10000)
+            if (__instance.light != null)
             {
-                __instance.Light.range = 10000;
+                __instance.light.range = 10000;
             }
         });
-    }
 }

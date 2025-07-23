@@ -72,7 +72,8 @@
         "rename": "Central Station",
         "position": {},
         "rotation": { "y": -60 },
-        "keepLoaded": true
+        "keepLoaded": true,
+        "ignoreSun": true
       },
       {
         "path": "Moon_Body/Sector_THM/Interactables_THM/Prefab_HEA_FuelTank",
