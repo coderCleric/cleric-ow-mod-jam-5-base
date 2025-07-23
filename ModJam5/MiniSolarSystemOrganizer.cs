@@ -10,7 +10,7 @@ namespace ModJam5;
 internal static class MiniSolarSystemOrganizer
 {
     public const float MINI_SYSTEM_RADIUS = 2500f;
-    public const float MINI_SYSTEM_DISTANCE = 10000f;
+    public const float MINI_SYSTEM_DISTANCE = 12000f;
 
     public static void Apply(IEnumerable<NewHorizonsBody> bodies, IModBehaviour[] jamEntries)
     {
@@ -69,22 +69,23 @@ internal static class MiniSolarSystemOrganizer
 
         ModJam5.Log($"Order systems.");
         string[] order = [
-            ModJam5.Instance.ModHelper.Manifest.UniqueName,
-            "2walker2.OWJam5ModProject",                //Heliostudy        MAX
-            "TheLoweDown256.TLDJam5",                    //Apostrolytum        Medium (?)
-            "APOLLO.939sPlanetdotSTRUCTURE",            //MagMag            MAX
-            "Trifid.TrifidJam5",                        //Scale                Tiny
-            "LeeSpork.ModJam5",                            //Cat                MAX (Explodes!)
-            "Boreas.Jam5CakeCapere",                    //Patrick Star        Medium
-            "Hawkbar.Terrarium",                        //Lonely Lump        Medium (?) (Expands)
-            "TheSignalJammers.FifthModJam",                //Silver Lining        Medium (?) (Expands)
-            "orclecle.Jam5PingBox",                        //Diorama Interface    Medium (?) (Expands)
-            "Onbvb.catastrophe",                        //Dark Green Star    Large
-            "Vambok.HearthianParable",                    //Parable            Medium
-            "Ender.Beryl.BrightSpark",                    //RGB                Large
-            "MegaPiggy.AnomalyResearchAndContainment",    //Verdant Beacon    Medium-Large
-            "TeamGeswaldo.Jam5",                        //Bruised Brother    Large-Max
-            "Etherpod.T0187",                            //Radio Moon        Small (?)
+            ModJam5.Instance.ModHelper.Manifest.UniqueName, // Doesn't get placed in the circle with the rest of them, must go first
+            "2walker2.OWJam5ModProject",                 //Heliostudy         MAX
+            "TheLoweDown256.TLDJam5",                    //Apostrolytum       Medium (?)
+            "APOLLO.939sPlanetdotSTRUCTURE",             //MagMag             MAX
+            "Trifid.TrifidJam5",                         //Scale              Tiny
+            "LeeSpork.ModJam5",                          //Cat                MAX (Explodes!)
+            "CantAffordaName.OnARail",                   //Train              Medium
+            "Boreas.Jam5CakeCapere",                     //Patrick Star       Medium
+            "Hawkbar.Terrarium",                         //Lonely Lump        Medium (?) (Expands)
+            "TheSignalJammers.FifthModJam",              //Silver Lining      Medium (?) (Expands)
+            "orclecle.Jam5PingBox",                      //Diorama Interface  Medium (?) (Expands)
+            "Onbvb.catastrophe",                         //Dark Green Star    Large
+            "Vambok.HearthianParable",                   //Parable            Medium
+            "Ender.Beryl.BrightSpark",                   //RGB                Large
+            "MegaPiggy.AnomalyResearchAndContainment",   //Verdant Beacon     Medium-Large
+            "TeamGeswaldo.Jam5",                         //Bruised Brother    Large-Max
+            "Etherpod.T0187",                            //Radio Moon         Small (?)
         ];
 
         List<IModBehaviour> orderedMods = [];

@@ -192,6 +192,7 @@ namespace ModJam5
                     // Not sure why it doesn't work this frame
                     ModHelper.Events.Unity.FireInNUpdates(() =>
                     {
+                        planet.transform.position = Quaternion.AngleAxis(platformAngle, Vector3.up) * (Vector3.forward * 5) + NewHorizons.GetPlanet("Central Station").transform.position;
                         planet.transform.rotation = Quaternion.Euler(0, platformAngle, 0);
                     }, 10);
                 }
