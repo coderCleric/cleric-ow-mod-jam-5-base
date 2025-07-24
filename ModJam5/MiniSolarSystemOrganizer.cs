@@ -11,9 +11,15 @@ internal static class MiniSolarSystemOrganizer
 {
     public const float MINI_SYSTEM_RADIUS = 2500f;
     public const float MINI_SYSTEM_DISTANCE = 12000f;
+    public const float MINI_SYSTEM_DISTANCE_CLOSE = 8000f;
 
     public static void Apply(IEnumerable<NewHorizonsBody> bodies, IModBehaviour[] jamEntries)
     {
+        int halfEntries = 8;
+        int baseMod = 1;
+        int distanceThreshold = halfEntries + baseMod;
+        float miniSystemDist = jamEntries.Count() <= distanceThreshold ? MINI_SYSTEM_DISTANCE_CLOSE : MINI_SYSTEM_DISTANCE;
+
         // Only allow one spawn point for now ig and let them override the sun one immediately
         // Only include spawns that set both because idk why don't you want a ship bro?
         var bodiesWithSpawns = bodies.Where(x => x.Config.Spawn?.playerSpawn != null && x.Config.Spawn?.shipSpawn != null);
@@ -143,7 +149,7 @@ internal static class MiniSolarSystemOrganizer
             }
             else
             {
-                center.Config.Orbit.staticPosition = Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward * MINI_SYSTEM_DISTANCE;
+                center.Config.Orbit.staticPosition = Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward * miniSystemDist;
             }
             center.Config.Orbit.primaryBody = "Central Station";
             var dict = new Dictionary<string, object>();
@@ -200,7 +206,7 @@ internal static class MiniSolarSystemOrganizer
                 ModJam5.LogError($"INVALID JAM ENTRY {staticBody.Config.name} IS OUTSIDE MAXIMUM RADIUS {MINI_SYSTEM_RADIUS}");
             }
             var angle = angularPosition[staticBody.Mod.ModHelper.Manifest.UniqueName];
-            staticBody.Config.Orbit.staticPosition += Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward * MINI_SYSTEM_DISTANCE;
+            staticBody.Config.Orbit.staticPosition += Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward * miniSystemDist;
         }
     }
 }
