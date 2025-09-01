@@ -133,11 +133,7 @@ internal static class MiniSolarSystemOrganizer
         }
         angularPosition[ModJam5.Instance.ModHelper.Manifest.UniqueName] = -10f;
 
-        var ignoreStaticBodies = new List<string>
-        {
-            "mod jam hub",
-            "anondomain"
-        };
+        var ignoreStaticBodies = new List<string>();
 
         foreach (var center in centers)
         {
