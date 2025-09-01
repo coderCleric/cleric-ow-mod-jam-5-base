@@ -68,6 +68,11 @@
         <DialogueTarget>TeachMeditation</DialogueTarget>
       </DialogueOption>
       <DialogueOption>
+        <RequiredPersistentCondition>JAM5_HUB_ACTIVE</RequiredPersistentCondition>
+        <Text>What's with the planet right above us?</Text>
+        <DialogueTarget>JamHubHint</DialogueTarget>
+      </DialogueOption>
+      <DialogueOption>
         <Text>Goodbye.</Text>
         <DialogueTarget>Goodbye</DialogueTarget>
       </DialogueOption>
@@ -143,6 +148,15 @@
       <Page>Okay traveler, breathe in, and breathe out...</Page>
     </Dialogue>
     <SetCondition>Jam5PingStartMeditation</SetCondition>
+  </DialogueNode>
+
+  <DialogueNode>
+    <Name>JamHubHint</Name>
+    <Dialogue>
+      <Page>I'm unsure, it doesn't seem to be in line with the other bodies in this area.</Page>
+      <Page>Only one way to find out I suppose! If you'd like to get there quickly, There's a transmitter below this platform that may lead there.</Page>
+    </Dialogue>
+    <DialogueTarget>Menu</DialogueTarget>
   </DialogueNode>
 
 </DialogueTree>
